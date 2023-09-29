@@ -9,7 +9,7 @@ public class patterns {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int N = scn.nextInt();
-        pattern12(N);
+        pattern13(N);
         scn.close();
     }
 
@@ -157,6 +157,16 @@ public class patterns {
             // for(int j = 0; j <= i; j++) {
             //     System.out.print(i + 1 - j + " ");
             // }
+            System.out.println();
+        }
+    }
+
+    static void pattern13(int N) {
+        int count = 0;
+        for(int i = 0; i < N; i++) {
+            for(int j = 0; j <= i; j++) {
+                System.out.print(++count + " ");
+            }
             System.out.println();
         }
     }
