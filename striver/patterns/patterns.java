@@ -9,7 +9,7 @@ public class patterns {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int N = scn.nextInt();
-        pattern22(N);
+        pattern18(N);
         scn.close();
     }
 
@@ -211,6 +211,16 @@ public class patterns {
             }
             for(int j = 0; j < i; j++) {
                 System.out.print((char)('A' + i - j - 1)  + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    static void pattern18(int N) {
+        for(int i = 0; i < N; i++) {
+            char ch = (char)('A'+N-i-1);
+            for(int j = 0; j <= i; j++) {
+                System.out.print((char)(ch+j) + " ");
             }
             System.out.println();
         }
