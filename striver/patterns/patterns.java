@@ -9,7 +9,7 @@ public class patterns {
     public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int N = scn.nextInt();
-        pattern21(N);
+        pattern22(N);
         scn.close();
     }
 
@@ -280,6 +280,59 @@ public class patterns {
                 }
             }
             System.out.println();   
+        }
+    }
+
+    /*
+     * Initial approach:
+     * Seperate problem into top and bottom half
+     * for the top half print right triangle, equilatral triangle, and inverted right triangle
+     * for the bottom half print right triangle, equilatral triangle, and inverted right triangle
+     */
+
+    // static void pattern22(int N) {
+    //     for(int i = 0; i < N; i++) {
+    //         for(int j = 1; j <= i; j++) {
+    //             System.out.print(N-j+1 + " ");
+    //         }
+    //         for(int j = 0; j < (2*N)-(2*i)-1; j++) {
+    //             System.out.print(N-i + " ");
+    //         }
+    //         for(int j = 1; j <= i; j++) {
+    //             System.out.print(N-i+j + " ");
+    //         }
+    //         System.out.println();
+    //     }
+    //     for(int i = 1; i < N; i++) {
+    //         for(int j = 1; j <= N-i-1; j++) {
+    //             System.out.print(N-j+1 + " ");
+    //         }
+    //         for(int j = 0; j < 2*(i+1)-1; j++) {
+    //             System.out.print(i+1 + " ");
+    //         }
+    //         for(int j = 1; j <= N-i-1; j++) {
+    //             System.out.print(i+j+1 + " ");
+    //         }
+    //         System.out.println();
+    //     }   
+    // }
+
+    /*
+     * Better Approach
+     * find the distance between each side and 
+     * take the min distance from all four sides
+     */
+    static void pattern22(int N) {
+        for(int i = 0; i < (2*N)-1; i++) {
+            for(int j = 0; j < (2*N)-1; j++) {
+                int top = i;
+                int left = j;
+                int bottom = (2*N)-2-i;
+                int right = (2*N)-2-j;
+                int num = Math.min(Math.min(top, bottom), Math.min(left, right));
+                System.out.print(N - num);
+            }
+            System.out.println();
         }
     }
 
