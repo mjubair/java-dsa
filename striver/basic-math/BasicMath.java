@@ -9,7 +9,7 @@ public class BasicMath {
      public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         int N = scn.nextInt();
-        divisors(N);
+        isPrime2(N);
         scn.close();
     }
 
@@ -121,5 +121,51 @@ public class BasicMath {
             }
         }
     }
+
+    /*
+     * Check for prime numbers
+     * Brute force approach
+     * TC -> O(N) | SC -> O(1)
+     */
+    
+    static void isPrime1(int N) {
+        int count = 0; 
+        for(int i = 1; i <= N; i++) {
+            if(N%i == 0) {
+                count++;
+            }
+        }
+        
+        if(count == 2) {
+            System.out.println(N + ", is a prime number");
+        } else {
+            System.out.println(N + ", is not a prime number");
+        }
+    }
+
+    /*
+     * Check for prime numbers
+     * Optimized approach
+     * TC -> O(sqrt(N)) | SC -> O(1)
+     */
+
+    static void isPrime2(int N) {
+        int count = 0;
+        for(int i = 1; i*i < N; i++) {
+            if(N%i == 0) {
+                count++;
+                if(N/i != i) {
+                    count++;
+                }
+            }
+        }
+
+        if(count == 2) {
+            System.out.println(N + ", is a prime number");
+        } else {
+            System.out.println(N + ", is not a prime number");
+        }
+    }
+
     
 }
