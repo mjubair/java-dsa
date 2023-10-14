@@ -10,7 +10,8 @@ public class recursion {
         // printNumbersDescBackTracking(N);
         // printNames(N);
         // System.out.println(sumNumbers(N));
-        System.out.println(fact(N));
+        // System.out.println(fact(N));
+        System.out.print(fib(N));
         scn.close();
     }
 
@@ -86,5 +87,15 @@ public class recursion {
         if (N == 1)
             return 1;
         return N * fact(N - 1);
+    }
+
+    /*
+     * Fibonacci Number
+     */
+
+    static int fib(int N) {
+        if (N <= 1)
+            return N;
+        return fib(N - 1) + fib(N - 2);
     }
 }
